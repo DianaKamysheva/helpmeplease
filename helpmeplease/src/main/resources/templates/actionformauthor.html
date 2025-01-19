@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add/Edit Author</title>
+</head>
+<body>
+<h1 th:text="${typeaction.equals('add') ? 'Add Author' : 'Edit Author'}"></h1>
+<form th:action="@{typeaction.equals('add') ? '/add/author' : '/edit/author/' + author.authorid}" th:object="${author}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{name}" required/>
+    <br>
+    <label for="surname">Surname:</label>
+    <input type="text" id="surname" th:field="*{surname}" required/>
+    <br>
+    <input type="hidden" name="typeaction" th:value="${typeaction}"/>
+    <button type="submit">Save</button>
+</form>
+<a th:href="@{/}">Back to List</a>
+</body>
+</html>

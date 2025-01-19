@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add/Edit Loan</title>
+</head>
+<body>
+<h1 th:text="${typeaction.equals('add') ? 'Add Loan' : 'Edit Loan'}"></h1>
+<form th:action="@{typeaction.equals('add') ? '/add/loan' : '/edit/loan/' + loan.loanid}" th:object="${loan}" method="post">
+    <label for="bookid">Book ID:</label>
+    <input type="number" id="bookid" th:field="*{bookid}" required/>
+    <br>
+    <label for="readerid">Reader ID:</label>
+    <input type="number" id="readerid" th:field="*{readerid}" required/>
+    <br>
+    <label for="loandate">Loan Date:</label>
+    <input type="date" id="loandate" th:field="*{loandate}" required/>
+    <br>
+    <label for="returnedate">Return Date:</label>
+    <input type="date" id="returnedate" th:field="*{returnedate}" required/>
+    <br>
+    <input type="hidden" name="typeaction" th:value="${typeaction}"/>
+    <button type="submit">Save</button>
+</form>
+<a th:href="@{/}">Back to List</a>
+</body>
+</html>

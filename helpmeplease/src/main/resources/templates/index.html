@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Библиотека/Архив</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+    <style>
+        .button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            color: #000000;
+            border: 5px solid #000000;
+            background-color: #95fee3;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            text-align: center;
+            width: 150px; /* Фиксированная ширина для кнопок */
+            box-sizing: border-box; /* Включает padding и border в ширину */
+        }
+        .text-container {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Выравнивание кнопок по правому краю */
+            margin-left: auto; /* Сдвигает контейнер кнопок вправо */
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <h1>Управление данными библиотеки/архива.</h1>
+        <p>База данных служит инструментом отслеживания наличия или отсутствия книг в учреждении.
+            Просьба не использовать программу не по назначению/не по инструкции.</p>
+    </div>
+    <div class="text-container">
+        <h2>Авторы</h2>
+        <a th:href="@{/edit/author/{id}(id=author.authorid)}" class="button">Редактировать</a>
+        <a th:href="@{/delete/author/{id}(id=author.authorid)}" class="button">Удалить</a>
+        <a th:href="@{/add/author}" class="button">Добавить Автора</a>
+    </div>
+
+    <div class="text-container">
+        <h2>Жанры</h2>
+
+        <a th:href="@{/edit/genre/{id}(id=genre.genreid)}" class="button">Редактировать</a>
+        <a th:href="@{/delete/genre/{id}(id=genre.genreid)}" class="button">Удалить</a>
+        <a th:href="@{/add/genre}" class="button">Добавить Жанр</a>
+    </div>
+
+    <div class="text-container">
+        <h2>Читатели</h2>
+
+        <a th:href="@{/edit/reader/{id}(id=reader.readerid)}" class="button">Редактировать</a>
+        <a th:href="@{/delete/reader/{id}(id=reader.readerid)}" class="button">Удалить</a>
+        <a th:href="@{/add/reader}" class="button">Добавить Читателя</a>
+    </div>
+
+    <div class="text-container">
+        <h2>Сроки займа-возврата книг</h2>
+
+        <a th:href="@{/edit/loan/{id}(id=loan.loanid)}" class="button">Редактировать</a>
+        <a th:href="@{/delete/loan/{id}(id=loan.loanid)}" class="button">Удалить</a>
+        <a th:href="@{/add/loan}" class="button">Добавить Даты</a>
+    </div>
+
+    <div class="text-container">
+        <h2>Книги</h2>
+
+        <a th:href="@{/edit/book/{id}(id=book.bookid)}" class="button">Редактировать</a>
+        <a th:href="@{/delete/book/{id}(id=book.bookid)}" class="button">Удалить</a>
+        <a th:href="@{/add/book}" class="button">Добавить Книгу</a>
+    </div>
+</body>
+</html>

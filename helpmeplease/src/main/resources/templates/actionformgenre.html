@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add/Edit Genre</title>
+</head>
+<body>
+<h1 th:text="${typeaction.equals('add') ? 'Add Genre' : 'Edit Genre'}"></h1>
+<form th:action="@{typeaction.equals('add') ? '/add/genre' : '/edit/genre/' + genre.genreid}" th:object="${genre}" method="post">
+    <label for="genrename">Genre Name:</label>
+    <input type="text" id="genrename" th:field="*{genrename}" required/>
+    <br>
+    <input type="hidden" name="typeaction" th:value="${typeaction}"/>
+    <button type="submit">Save</button>
+</form>
+<a th:href="@{/}">Back to List</a>
+</body>
+</html>
